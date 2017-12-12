@@ -8,11 +8,13 @@ public class AoCCaptcha {
         char[] captchaChars = captcha.toCharArray();
 
         int sum = 0;
+        int index = captchaChars.length/2;
 
         // Iterate through chars and add to sum if they match next in line
-        for (int x = 0, y = 1; x < captchaChars.length; x++, y++) {
-            if (y == captchaChars.length) {
-                y = 0;
+        for (int x = 0, y = index; x < captchaChars.length; x++, y++) {
+
+            if (y >= captchaChars.length) {
+                y = y - captchaChars.length;
             }
 
             if (captchaChars[x] == captchaChars[y]) {
